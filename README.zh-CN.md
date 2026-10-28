@@ -34,7 +34,8 @@ Node.js 18+，以及已安装的 [Codex CLI](https://github.com/openai/codex)（
 ## 安装与登录
 
 ```bash
-git clone <本仓库地址> && cd codex-auto
+git clone https://github.com/Mingyang-Sheep/codex-auto-repo.git
+cd codex-auto-repo
 
 node codex-auto.mjs login a        # 打开浏览器，登录账号 A
 node codex-auto.mjs login b        # 账号 B
@@ -64,7 +65,7 @@ node codex-auto.mjs run -s workspace-write -C ./myproject -- "修复失败的测
 cat prompt.txt | node codex-auto.mjs run          # 长提示词用标准输入
 ```
 
-`--` 之前的参数原样传给 `codex exec`。除非你自己传了，否则会自动加上 `--skip-git-repo-check`。
+脚本自带的选项：`--prefer <name>`（优先使用该账号，例如把两个任务并行分给不同账号）、`--effort medium|high|xhigh`、`--max`（等同 `xhigh`）。推理强度不会低于 `medium`。其余 `--` 之前的参数原样传给 `codex exec`。除非你自己传了，否则会自动加上 `--skip-git-repo-check`。
 
 其他命令：`status`（账号与冷却状态）、`reset [name]`（清除冷却）、`login <name>`。
 
@@ -77,6 +78,8 @@ cat prompt.txt | node codex-auto.mjs run          # 长提示词用标准输入
 | 环境变量 | 含义 | 默认值 |
 |---|---|---|
 | `CODEX_AUTO_DIR` | 账号、状态、日志的存放目录 | `~/.codex-auto` |
+| `CODEX_AUTO_MODEL` | 所有调用使用的模型（不设则用 Codex 默认） | 未设置 |
+| `CODEX_AUTO_EFFORT` | 默认推理强度 | `medium` |
 | `CODEX_AUTO_ACCOUNTS` | 显式指定账号，`name=path;name=path` | `<目录>/accounts` 下所有文件夹 |
 
 ## 局限

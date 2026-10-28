@@ -3,8 +3,27 @@
   "version": "0.1.0",
   "description": "Run Codex CLI across multiple ChatGPT accounts and switch automatically when one hits its usage limit.",
   "type": "module",
-  "bin": { "codex-auto": "codex-auto.mjs" },
-  "engines": { "node": ">=18" },
-  "keywords": ["codex", "openai", "cli", "claude-code", "agent", "account-switch"],
-  "license": "MIT"
+  "bin": {
+    "codex-auto": "codex-auto.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "codex",
+    "openai",
+    "cli",
+    "claude-code",
+    "agent",
+    "account-switch"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mingyang-Sheep/codex-auto-repo.git"
+  },
+  "homepage": "https://github.com/Mingyang-Sheep/codex-auto-repo#readme",
+  "bugs": {
+    "url": "https://github.com/Mingyang-Sheep/codex-auto-repo/issues"
+  }
 }

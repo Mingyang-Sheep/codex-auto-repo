@@ -34,7 +34,8 @@ Node.js 18+ and the [Codex CLI](https://github.com/openai/codex) (`codex` on you
 ## Setup
 
 ```bash
-git clone <this repo> && cd codex-auto
+git clone https://github.com/Mingyang-Sheep/codex-auto-repo.git
+cd codex-auto-repo
 
 node codex-auto.mjs login a        # opens the browser, sign in with account A
 node codex-auto.mjs login b        # account B
@@ -64,7 +65,7 @@ node codex-auto.mjs run -s workspace-write -C ./myproject -- "fix the failing te
 cat prompt.txt | node codex-auto.mjs run          # long prompts via stdin
 ```
 
-Everything before `--` is passed to `codex exec`. `--skip-git-repo-check` is added unless you pass it yourself.
+Wrapper options: `--prefer <name>` (start with that account, e.g. to run two jobs in parallel on different accounts), `--effort medium|high|xhigh`, `--max` (= `xhigh`). Reasoning effort is never below `medium`. Everything else before `--` is passed to `codex exec`. `--skip-git-repo-check` is added unless you pass it yourself.
 
 Other commands: `status` (accounts and cooldowns), `reset [name]` (clear cooldowns), `login <name>`.
 
@@ -77,6 +78,8 @@ Paste [`CLAUDE-snippet.md`](CLAUDE-snippet.md) into your `CLAUDE.md` / `AGENTS.m
 | Variable | Meaning | Default |
 |---|---|---|
 | `CODEX_AUTO_DIR` | where accounts, state and logs live | `~/.codex-auto` |
+| `CODEX_AUTO_MODEL` | model for every call (otherwise Codex's own default) | unset |
+| `CODEX_AUTO_EFFORT` | default reasoning effort | `medium` |
 | `CODEX_AUTO_ACCOUNTS` | explicit accounts, `name=path;name=path` | every folder in `<dir>/accounts` |
 
 ## Limitations
