@@ -1,0 +1,7 @@
+# credentials and runtime data - never commit
+accounts/
+logs/
+state.json
+auth.json
+*.log
+node_modules/
